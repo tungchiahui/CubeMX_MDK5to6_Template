@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"template_linux\startup_stm32f103xb.o"
+"template_linux\main.o"
+"template_linux\stm32f1xx_it.o"
+"template_linux\stm32f1xx_hal_msp.o"
+"template_linux\stm32f1xx_hal_gpio_ex.o"
+"template_linux\stm32f1xx_hal_tim.o"
+"template_linux\stm32f1xx_hal_tim_ex.o"
+"template_linux\stm32f1xx_hal.o"
+"template_linux\stm32f1xx_hal_rcc.o"
+"template_linux\stm32f1xx_hal_rcc_ex.o"
+"template_linux\stm32f1xx_hal_gpio.o"
+"template_linux\stm32f1xx_hal_dma.o"
+"template_linux\stm32f1xx_hal_cortex.o"
+"template_linux\stm32f1xx_hal_pwr.o"
+"template_linux\stm32f1xx_hal_flash.o"
+"template_linux\stm32f1xx_hal_flash_ex.o"
+"template_linux\stm32f1xx_hal_exti.o"
+"template_linux\system_stm32f1xx.o"
+--strict --scatter "Template_Linux\Template_Linux.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Template_Linux.map" -o Template_Linux\Template_Linux.axf
