@@ -32,6 +32,7 @@ class BSP_Delay
 		}freertos;
 };
 
+/***********对象*************/
 extern BSP_Delay bsp_delay;
 
 #ifdef __cplusplus

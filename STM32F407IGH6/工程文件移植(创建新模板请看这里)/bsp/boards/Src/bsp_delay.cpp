@@ -6,6 +6,7 @@
 
 static uint32_t g_fac_us = 0;       /* us延时倍乘数 */
 
+/***********对象*************/
 BSP_Delay bsp_delay;
 
 /**
