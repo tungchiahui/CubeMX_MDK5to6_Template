@@ -15,8 +15,13 @@ extern "C"
 //如果是FreeRTOS开发，则填1。
 //如果是UOS开发，则填xxxx。(待开发相关代码)
 #define isRTOS 0
-	
 
+#if isRTOS == 1
+#include "cmsis_os.h"
+#endif
+
+
+	
 void startup_main(void);
 	
 	
