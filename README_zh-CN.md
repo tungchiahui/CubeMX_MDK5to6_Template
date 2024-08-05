@@ -4,5 +4,5 @@
 4. 作者: Tung Chia-hui
 5. 网站: https://github.com/tungchiahui
 6. 电子邮箱: tungchiahui@gmail.com
-7. 组织: VinciRobot
+7. 组织: 山东理工大学机电创新学会Vinci机器人队
 8. 构建日期: 2024-01-31
