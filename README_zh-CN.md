@@ -1,4 +1,7 @@
 # README
+
+中文 | [English](README.md) 
+
 1. 项目名称：CubeMX_MDK5to6_Template_Project
 2. 版本：v1.0
 3. 版本状态：预发行版本
