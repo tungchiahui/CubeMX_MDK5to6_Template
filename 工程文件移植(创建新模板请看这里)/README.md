@@ -9,6 +9,9 @@
 3. ### 以下是参考模板:
 
 # README
+
+[中文](README-zh_CN.md) | English
+
 1. Project Name: BLUETOOTH_UART_DEBUGGER
 2. Version: v1.0
 3. State: Pre-Release
