@@ -1,4 +1,7 @@
 # README
+
+[中文](README-zh_CN.md) | English
+
 1. Project Name: CubeMX_MDK5to6_Template_Project
 2. Version: v1.0
 3. State: Pre-Release
