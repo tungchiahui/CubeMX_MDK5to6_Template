@@ -148,17 +148,17 @@ void BSP_Delay::FreeRTOS::Init(void)
 }
 
 
-extern "C"
+
 /**
   * @brief HAL库内部函数用到的延时
            HAL库的延时默认用Systick，如果我们没有开Systick的中断会导致调用这个延时后无法退出
   * @param Delay 要延时的毫秒数
   * @retval None
   */
+#if isRTOS==0  //如果不是RTOS开发
+extern "C"
 void HAL_Delay(uint32_t Delay)
 {
-#if isRTOS==0   //如果是裸机开发
-	
 	#ifdef STM32F1  //如果是裸机开发且为F1
 			bsp_delay.f1.ms(Delay);
 	#endif
@@ -166,8 +166,5 @@ void HAL_Delay(uint32_t Delay)
 	#ifdef STM32F4  //如果是裸机开发且为F4
 			bsp_delay.f4.ms(Delay);
 	#endif
-	
-#elif isRTOS==1          //如果是FreeRTOS开发
-		 osDelay(Delay);
-#endif
 }
+#endif
