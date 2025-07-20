@@ -6,7 +6,7 @@ extern "C"
 {
 #endif
 
-#include "startup_main.h"
+#include "cpp_interface.h"
 
 class BSP_Delay
 {
