@@ -1,5 +1,5 @@
-#ifndef __STARTUP_MAIN_H_
-#define __STARTUP_MAIN_H_
+#ifndef __CPP_INTERFACE_H_
+#define __CPP_INTERFACE_H_
 
 #ifdef __cplusplus
 extern "C"
@@ -22,7 +22,7 @@ extern "C"
 
 
 	
-void startup_main(void);
+void cpp_main(void);
 	
 	
 

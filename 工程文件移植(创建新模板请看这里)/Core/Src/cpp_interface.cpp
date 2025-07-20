@@ -1,7 +1,7 @@
-#include "startup_main.h"
+#include "cpp_interface.h"
 
 
-void startup_main(void)
+void cpp_main(void)
 {
 
 	
