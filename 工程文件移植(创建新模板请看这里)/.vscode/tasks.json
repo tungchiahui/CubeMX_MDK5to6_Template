@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceFolder}/build"    //需要进入到我们执行tasks任务的文件夹中
+    },
+    "tasks": [    //tasks包含3个任务
+        {
+            "type": "shell",
+            "label": "cmake",    //第一个任务的名字叫cmake
+            "command": "bash",
+            "args": [
+                "-c",
+                "mkdir -p ../log && echo \"===== CMake started at: $(date) =====\" | tee -a ../log/cmake.log && cmake .. 2>&1 | tee -a ../log/cmake.log"
+            ],
+            "problemMatcher": []    //这里需要添加一个空的问题匹配器，否则会报错
+        },
+        {
+            "label": "make",    //第二个任务的名字叫make
+            "command": "bash",
+            "args": [
+                "-c",
+                "mkdir -p ../log && echo \"===== Make started at: $(date) =====\" | tee -a ../log/make.log && make -j$(grep -c ^processor /proc/cpuinfo) 2>&1 | tee -a ../log/make.log"
+            ],
+            "problemMatcher": []    //这里也需要添加一个空的问题匹配器，否则会报错
+        },
+        {
+            "label": "Build",    //第3个任务的名字叫Build
+			"group": {               //默认是build任务
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOrder": "sequence",    //顺序执行依赖项
+            "dependsOn":[    //依赖的2个项为cmake、make
+                "cmake",    //即第一个任务的label
+                "make"      //即第二个任务的label
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "clean",    //第四个任务：清理 build 文件夹
+            "command": "bash",
+            "args": [
+                "-c",
+                "echo \"===== Clean started at: $(date) =====\" && rm -rf * && echo \"Build folder cleaned.\""
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"    //只清理build目录下的文件
+            },
+            "problemMatcher": []    //不需要问题匹配器
+        }
+
+    ]
+}
