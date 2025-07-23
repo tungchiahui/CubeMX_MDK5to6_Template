@@ -3,10 +3,10 @@
     "options": {
         "cwd": "${workspaceFolder}/build"    //需要进入到我们执行tasks任务的文件夹中
     },
-    "tasks": [    //tasks包含3个任务
+    "tasks": [    //tasks包含4个任务
         {
             "type": "shell",
-            "label": "cmake",    //第一个任务的名字叫cmake
+            "label": "stm32-cmake",    //第一个任务的名字叫cmake
             "command": "bash",
             "args": [
                 "-c",
@@ -15,7 +15,7 @@
             "problemMatcher": []    //这里需要添加一个空的问题匹配器，否则会报错
         },
         {
-            "label": "make",    //第二个任务的名字叫make
+            "label": "stm32-make",    //第二个任务的名字叫make
             "command": "bash",
             "args": [
                 "-c",
@@ -24,20 +24,20 @@
             "problemMatcher": []    //这里也需要添加一个空的问题匹配器，否则会报错
         },
         {
-            "label": "Build",    //第3个任务的名字叫Build
-			"group": {               //默认是build任务
+            "label": "stm32-Build",    //第3个任务的名字叫Build
+            "group": {               //默认是build任务
                 "kind": "build",
                 "isDefault": true
             },
             "dependsOrder": "sequence",    //顺序执行依赖项
             "dependsOn":[    //依赖的2个项为cmake、make
-                "cmake",    //即第一个任务的label
-                "make"      //即第二个任务的label
+                "stm32-cmake",    //即第一个任务的label
+                "stm32-make"      //即第二个任务的label
             ]
         },
         {
             "type": "shell",
-            "label": "clean",    //第四个任务：清理 build 文件夹
+            "label": "stm32-clean",    //第四个任务：清理 build 文件夹
             "command": "bash",
             "args": [
                 "-c",
