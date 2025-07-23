@@ -1,0 +1,18 @@
+
+# 下面这两行只要别用6.15版本的CubeMX就不需要自己手动添加。
+# Include toolchain file
+include("cmake/gcc-arm-none-eabi.cmake")
+
+
+# Add USER generated sources
+add_subdirectory(cmake/user)
+
+
+# 生成 .bin 和 .hex 文件
+find_program(OBJCOPY arm-none-eabi-objcopy REQUIRED)
+
+add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+    COMMAND ${OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.elf ${CMAKE_PROJECT_NAME}.bin
+    COMMAND ${OBJCOPY} -O ihex   ${CMAKE_PROJECT_NAME}.elf ${CMAKE_PROJECT_NAME}.hex
+    COMMENT "Generating .bin and .hex files from .elf"
+)
