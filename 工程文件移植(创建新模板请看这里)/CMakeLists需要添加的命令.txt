@@ -11,8 +11,11 @@ add_subdirectory(cmake/user)
 # 生成 .bin 和 .hex 文件
 find_program(OBJCOPY arm-none-eabi-objcopy REQUIRED)
 
+# 生成 .bin 和 .hex 文件
+find_program(OBJCOPY arm-none-eabi-objcopy REQUIRED)
+
 add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
     COMMAND ${OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.elf ${CMAKE_PROJECT_NAME}.bin
     COMMAND ${OBJCOPY} -O ihex   ${CMAKE_PROJECT_NAME}.elf ${CMAKE_PROJECT_NAME}.hex
-    COMMENT "Generating .bin and .hex files from .elf"
+    COMMENT "Generating ${CMAKE_PROJECT_NAME}.bin and ${CMAKE_PROJECT_NAME}.hex from ${CMAKE_PROJECT_NAME}.elf"
 )
